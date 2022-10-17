@@ -1,8 +1,8 @@
 FROM node:16-alpine
 WORKDIR /opt/app
 ADD package.json package.json
-RUN npm install --force
+RUN npm install --legacy-peer-deps
 ADD . .
-RUN npm run build --force
-RUN npm prune --production --force
+RUN npm run build --legacy-peer-deps
+RUN npm prune --production --legacy-peer-deps
 CMD ["node", "./dist/main.js"]
