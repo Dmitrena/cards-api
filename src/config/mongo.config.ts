@@ -4,8 +4,7 @@ export const getMongoConfig = async (
   configService: ConfigService,
 ): Promise<TypegooseModuleOptions> => {
   return {
-    uri: 'mongodb://admin:admin@localhost:27017',
-    // getMongoString(configService)
+    uri: getMongoString(configService),
     ...getMongoOptions(),
   };
 };
@@ -19,9 +18,7 @@ const getMongoString = (configService: ConfigService) =>
   // configService.get('MONGO_HOST') +
   'localhost' +
   ':' +
-  configService.get('MONGO_PORT') +
-  '/' +
-  configService.get('MONGO_AUTHDB');
+  configService.get('MONGO_PORT');
 
 const getMongoOptions = () => ({
   useNewUrlParser: true,
