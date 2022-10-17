@@ -2,9 +2,9 @@ version: '3.9'
 services:
   top.api:
     image: app:latest
-    container_name: app
+    container_name: top-api
     restart: always
     ports:
-      -8000:8000
+      - 8000:8000
     volumes:
-      - ./.env:/app/.env
+      - ./.env:/opt/app/.env
